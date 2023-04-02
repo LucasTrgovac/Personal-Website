@@ -80,3 +80,30 @@ ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .test
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
 
+/*========== contact form save locally ==========*/
+/*handle form submission*/
+const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        emailsubject: formData.get('emailsubject'),
+        message: formData.get('message')
+      };
+      saveDataToLocal(data);
+      contactForm.reset();
+      alert('Your message has been sent successfully.');
+    });
+
+    /*save data to local storage*/
+    function saveDataToLocal(data) {
+    let contacts = [];
+    if (localStorage.getItem('contacts')) {
+      contacts = JSON.parse(localStorage.getItem('contacts'));
+    }
+    contacts.push(data);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }
