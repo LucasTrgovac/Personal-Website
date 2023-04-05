@@ -80,6 +80,7 @@ ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .test
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
 
+
 /*========== contact form save locally ==========*/
 /*handle form submission*/
 const contactForm = document.getElementById('contact-form');
